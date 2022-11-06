@@ -3,7 +3,7 @@ CXXFLAGS = -O2 -Wall -std=c++17
 OBJS = build/main.o
 PREFIX ?= /usr/local
 
-a: $(OBJS)
+build/learn_ex: $(OBJS)
 	$(CXX) $(OBJS) -o build/learn_ex $(CXXFLAGS)
 
 build/main.o: src/main.cpp
@@ -15,7 +15,7 @@ install: build/learn_ex
 	cp -f build/learn_ex ${PREFIX}/bin
 	chmod 755 ${PREFIX}/bin/learn_ex
 
-uninstall
+uninstall:
 	rm -f ${PREFIX}/bin/learn_ex
 
 clean:
